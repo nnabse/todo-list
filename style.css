@@ -1,0 +1,45 @@
+body {
+  padding: 0;
+  margin: 0;
+}
+
+.main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.title {
+  font-size: 1.5rem;
+}
+
+.task_input input {
+  margin-right: 5px;
+}
+
+.task {
+  display: flex;
+  align-items: center;
+  margin-top: 15px;
+}
+
+.task-text {
+  padding-left: 5px;
+}
+
+.done-text {
+  text-decoration: line-through;
+  color: rgba(0, 0, 0, 0.404);
+}
+
+.rename_input {
+  margin-bottom: 3px;
+}
+
+img {
+  /* margin-top: 15px; */
+  padding-left: 5px;
+  width: 21px;
+  height: 21px;
+}
