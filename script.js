@@ -47,7 +47,7 @@ const deleteTask = (index) => {
 
 const toggleEditVisible = (index) => {
   allTasks.forEach((elem) => {
-    if (editOpened === false) {
+    if (!editOpened) {
       allTasks[index].isEdit = true;
       renameValue = renameInput.value;
       editOpened = true;
@@ -61,8 +61,6 @@ const updateValue = (event) => {
   inputValue = event.target.value;
   localStorage.setItem("tasks", JSON.stringify(allTasks));
 };
-
-
 
 const onRename = (index) => {
   if (renameValue !== "" && renameValue !== " ") {
