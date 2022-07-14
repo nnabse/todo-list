@@ -6,7 +6,7 @@ let inputValue = "";
 let renameValue = "";
 let renameInput = "";
 
-let countOpened = 0;
+let editOpened = false;
 
 let editVisible = [0, false];
 
@@ -39,22 +39,21 @@ const onCheckboxChange = (index) => {
 
 const deleteTask = (index) => {
   allTasks.splice(index, 1);
-  localStorage.setItem("tasks", JSON.stringify(allTasks));
+  editOpened = false;
   editVisible = false;
+  localStorage.setItem("tasks", JSON.stringify(allTasks)); 
   render();
 };
 
 const toggleEditVisible = (index) => {
   allTasks.forEach((elem) => {
-    if (countOpened === 0) {
+    if (editOpened === false) {
       allTasks[index].isEdit = true;
       renameValue = renameInput.value;
-      countOpened++;
+      editOpened = true;
       render();
     }
-    if (elem.isEdit) {
-      return 0;
-    }
+    if(elem.isEdit) return 0; 
   });
 };
 
@@ -68,7 +67,7 @@ const updateValue = (event) => {
 const onRename = (index) => {
   if (renameValue !== "" && renameValue !== " ") {
     if(renameValue === undefined) renameValue = allTasks[index].text;
-    countOpened = 0;
+    editOpened = false;
     allTasks[index].text = renameValue;
     allTasks[index].isEdit = false;
   }
@@ -77,7 +76,7 @@ const onRename = (index) => {
 };
 
 const onCancel = (index) => {
-  countOpened = 0;
+  editOpened = false;
   allTasks[index].text = allTasks[index].text;
   allTasks[index].isEdit = !allTasks[index].isEdit;
   localStorage.setItem("tasks", JSON.stringify(allTasks));
