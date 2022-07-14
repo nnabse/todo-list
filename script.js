@@ -66,7 +66,7 @@ const onRename = (index) => {
   render();
 };
 
-onCancel = (index) => {
+const onCancel = (index) => {
   allTasks[index].text = allTasks[index].text;
   allTasks[index].isEdit = !allTasks[index].isEdit;
   localStorage.setItem("tasks", JSON.stringify(allTasks));
@@ -90,7 +90,7 @@ const render = () => {
     editForm.className = "rename_input";
     editForm.value = allTasks[index].text;
 
-      editForm.addEventListener("change", updateRenameValue);
+    editForm.addEventListener("change", updateRenameValue);
 
     const checkbox = document.createElement("input");
     checkbox.type = "checkbox";
