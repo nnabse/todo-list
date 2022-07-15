@@ -34,7 +34,6 @@ const addTask = async () => {
       body: JSON.stringify({
         text: inputValue,
         isCheck: false,
-        isEdit: false
       }),
     });
     const result = await resp.json();
@@ -133,7 +132,7 @@ const render = () => {
   while (content.firstChild) {
     content.removeChild(content.firstChild);
   }
-  allTasks.sort((a, b) => a.isCheck > b.isCheck ? 1 : a.isCheck < b.isCheck ? -1 : 0);
+  allTasks.sort((a, b) => a.isCheck < b.isCheck ? -1 : 1);
   allTasks.map((item, index) => {
     const container = document.createElement("div");
     container.id = `task_${index}`;
