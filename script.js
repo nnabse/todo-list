@@ -132,7 +132,7 @@ const render = () => {
   while (content.firstChild) {
     content.removeChild(content.firstChild);
   }
-  allTasks.sort((a, b) => a.isCheck < b.isCheck ? -1 : 1);
+  allTasks.sort((a, b) => a.isCheck - b.isCheck);
   allTasks.map((item, index) => {
     const container = document.createElement("div");
     container.id = `task_${index}`;
